@@ -18,6 +18,10 @@ public class HoraExacta extends Hora {
 		this.segundo = segundo;
 	}
 
+	/**
+	 * 
+	 * @return res Boolean que verifica si el segundo existe o no
+	 */
 	boolean setSegundo() {
 		boolean res = false;
 		if (this.segundo >= 0 && this.segundo <= 59) {
@@ -26,6 +30,10 @@ public class HoraExacta extends Hora {
 		return res;
 	}
 
+	/**
+	 * Método que al incrementar el último segundo de la hora se incremente el
+	 * minuto
+	 */
 	void inc() {
 		super.inc();
 		this.segundo++;
@@ -34,14 +42,27 @@ public class HoraExacta extends Hora {
 		}
 	}
 
+	/**
+	 * 
+	 * @return segundo
+	 */
 	public int getSegundo() {
 		return segundo;
 	}
 
+	/**
+	 * 
+	 * @param segundo
+	 */
 	public void setSegundo(int segundo) {
 		this.segundo = segundo;
 	}
 
+	/**
+	 * Método toString
+	 * 
+	 * @return Cadena de texto para todos los objetos hora
+	 */
 	public String toString() {
 		return super.toString() + ":" + this.segundo;
 	}
