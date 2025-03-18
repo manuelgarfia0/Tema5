@@ -152,7 +152,8 @@ public class Electrodomestico {
 	/**
 	 * 
 	 */
-	public void precioFinal() {
+	public double precioFinal() {
+		double aumento = 0;
 		switch (this.consumoEnergetico) {
 		case A -> this.precioBase += 100;
 		case B -> this.precioBase += 80;
@@ -162,15 +163,16 @@ public class Electrodomestico {
 		case F -> this.precioBase += 10;
 		}
 
-		if (this.peso >= 0 && this.peso <= 19) {
-			this.precioBase += 10;
-		} else if (this.peso >= 20 && this.peso <= 49) {
-			this.precioBase += 50;
-		} else if (this.peso >= 50 && this.peso <= 79) {
-			this.precioBase += 80;
-		} else if (this.peso >= 80) {
-			this.precioBase += 100;
-		}
+		if (peso >= 0 && peso <= 19)
+			aumento += 10;
+		else if (peso >= 20 && peso <= 49)
+			aumento += 50;
+		else if (peso >= 50 && peso <= 79)
+			aumento += 80;
+		else if (peso >= 80)
+			aumento += 100;
+
+		return precioBase + aumento;
 	}
 
 }

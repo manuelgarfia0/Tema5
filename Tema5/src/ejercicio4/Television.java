@@ -68,17 +68,18 @@ public class Television extends Electrodomestico {
 	public void setSintonizadorTDT(boolean sintonizadorTDT) {
 		this.sintonizadorTDT = sintonizadorTDT;
 	}
+
 	/**
 	 * 
 	 */
-	public void precioFinal() {
-		if (this.resolucion > 40) {
-			this.precioBase += (this.precioBase / 30) * 100;
-		}
-		if (this.sintonizadorTDT) {
-			this.precioBase += 50;
-		}
-		super.precioFinal();
+	@Override
+	public double precioFinal() {
+		double precio = super.precioFinal();
+		if (resolucion > 40)
+			precio *= 1.3;
+		if (sintonizadorTDT)
+			precio += 50;
+		return precio;
 	}
 
 }
