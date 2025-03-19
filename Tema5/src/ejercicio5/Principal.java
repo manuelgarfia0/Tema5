@@ -5,14 +5,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
-
+	
 	private static List<Polígono> poligonos = new ArrayList<>();
 	private static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		int opcion;
 		do {
-			System.out.println("\nMenú:");
 			System.out.println("1. Introducir triángulo");
 			System.out.println("2. Introducir rectángulo");
 			System.out.println("3. Mostrar polígonos");
@@ -39,7 +38,7 @@ public class Principal {
 		double lado3 = scanner.nextDouble();
 
 		poligonos.add(new Triángulo(lado1, lado2, lado3));
-		System.out.println("Triángulo agregado.");
+		System.out.println("Triángulo agregado");
 	}
 
 	private static void introducirRectangulo() {
@@ -57,7 +56,7 @@ public class Principal {
 			System.out.println("No hay polígonos registrados.");
 		} else {
 			for (Polígono p : poligonos) {
-				System.out.println(p.toString() + " | Área: " + p.área());
+				System.out.println(p.toString() + "--> Área = " + p.área());
 			}
 		}
 	}
