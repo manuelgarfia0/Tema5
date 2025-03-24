@@ -6,7 +6,7 @@ package interfaces.ejercicio2;
  * 
  * @author manuel.garfia
  */
-public class Futbolista {
+public class Futbolista implements Comparable<Futbolista> {
 	/**
 	 * Dorsal que lleva el jugador en su camiseta.
 	 */
@@ -51,6 +51,70 @@ public class Futbolista {
 	}
 
 	/**
+	 * 
+	 * @return
+	 */
+	public int getNumeroCamiseta() {
+		return numeroCamiseta;
+	}
+
+	/**
+	 * 
+	 * @param numeroCamiseta
+	 */
+	public void setNumeroCamiseta(int numeroCamiseta) {
+		this.numeroCamiseta = numeroCamiseta;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * 
+	 * @param nombre
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public int getEdad() {
+		return edad;
+	}
+
+	/**
+	 * 
+	 * @param edad
+	 */
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public int getNumeroGoles() {
+		return numeroGoles;
+	}
+
+	/**
+	 * 
+	 * @param numeroGoles
+	 */
+	public void setNumeroGoles(int numeroGoles) {
+		this.numeroGoles = numeroGoles;
+	}
+
+	/**
 	 * Método equals
 	 * 
 	 * @param res
@@ -76,6 +140,16 @@ public class Futbolista {
 	@Override
 	public String toString() {
 		return this.nombre + "--> Edad: " + this.edad + ", Dorsal: " + this.numeroCamiseta + ", Goles: " + numeroGoles;
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public int compareTo(Futbolista f) {
+		int res = 0;
+
+		return res;
 	}
 
 }
