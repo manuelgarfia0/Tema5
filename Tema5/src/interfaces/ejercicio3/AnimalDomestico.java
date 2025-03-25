@@ -3,34 +3,34 @@ package interfaces.ejercicio3;
 /**
  * @author manuel.garfia
  */
-public class AnimalDomestico implements Animal {
+abstract class AnimalDomestico implements Animal {
 
-	private String nombre = "";
-	private String raza = "";
-	private double peso = 0;
-	private String color = "";
+	protected String nombre = "";
+	protected String raza = "";
+	protected double peso = 0;
+	protected String color = "";
 
-	@Override
-	public void comer() {
+	public AnimalDomestico(String nombre, String raza, double peso, String color) {
+		this.nombre = nombre;
+		this.raza = raza;
+		this.peso = peso;
+		this.color = color;
+	}
 
+	public void vacunar() {
+		System.out.println(nombre + " ha sido vacunado.");
 	}
 
 	@Override
 	public void dormir() {
-
+		System.out.println(nombre + " está durmiendo.");
 	}
 
 	@Override
-	public void hacerRuido() {
-
+	public void comer() {
+		System.out.println(nombre + " está comiendo.");
 	}
 
-	public void vacunar() {
-		
-	}
-	
-	public void hacerCaso() {
-		
-	}
-	
+	public abstract boolean hacerCaso();
+
 }
