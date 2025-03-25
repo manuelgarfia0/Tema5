@@ -148,7 +148,11 @@ public class Futbolista implements Comparable<Futbolista> {
 	@Override
 	public int compareTo(Futbolista f) {
 		int res = 0;
-
+		if (this.numeroCamiseta < f.numeroCamiseta) {
+			res = -1;
+		} else if (this.numeroCamiseta > f.numeroCamiseta) {
+			res = 1;
+		}
 		return res;
 	}
 

@@ -1,23 +1,25 @@
 package interfaces.ejercicio1;
 
 /**
- * 
+ * @author manuel.garfia
  */
 public class Socio implements Comparable<Socio> {
 	/**
-	 * 
+	 * Id del socio
 	 */
 	int id;
 	/**
-	 * 
+	 * Nombre del socio
 	 */
 	String nombre;
 	/**
-	 * 
+	 * Edad del socio
 	 */
 	int edad;
 
 	/**
+	 * 
+	 * Constructor de socio
 	 * 
 	 * @param id
 	 * @param nombre
@@ -36,13 +38,18 @@ public class Socio implements Comparable<Socio> {
 	}
 
 	/**
+	 * Método toString
 	 * 
+	 * @return Cadena de texto dando la información del socio
 	 */
 	@Override
 	public String toString() {
 		return "Socio--> id = " + id + ", nombre = " + nombre + ", edad = " + edad;
 	}
 
+	/**
+	 * Método compareTo, para mostrar los toString de los socios por orden de id
+	 */
 	@Override
 	public int compareTo(Socio s1) {
 		int res = 0;
