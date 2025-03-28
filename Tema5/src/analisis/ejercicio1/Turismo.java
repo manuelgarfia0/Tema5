@@ -4,11 +4,15 @@ public class Turismo extends Vehiculo {
 	/**
 	 * 
 	 */
-	private int numPlazas = 0;
+	enum TipoUso {
+		PROFESIONAL, PARTICULAR
+	}
+
 	/**
 	 * 
 	 */
-	private boolean tipoUso = false;
+	private int numPlazas = 0;
+	private TipoUso uso;
 
 	/**
 	 * Constructor de turismo
@@ -17,17 +21,14 @@ public class Turismo extends Vehiculo {
 	 * @param modelo
 	 * @param color
 	 * @param matricula
-	 * @param motor
-	 * @param marcha
-	 * @param velocidad
+	 * @param numPlazas
 	 */
-	public Turismo(String marca, String modelo, String color, String matricula, boolean motor, int marcha,
-			int velocidad, int numPlazas, boolean tipoUso) {
-		super(marca, modelo, color, matricula, motor, marcha, velocidad);
+	public Turismo(String marca, String modelo, String color, String matricula, int numPlazas, TipoUso uso) {
+		super(marca, modelo, color, matricula);
 		if (numPlazas > 0) {
 			this.numPlazas = numPlazas;
 		}
-		this.tipoUso = tipoUso;
+		this.uso = uso;
 	}
 
 	/**
@@ -46,20 +47,12 @@ public class Turismo extends Vehiculo {
 		this.numPlazas = numPlazas;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
-	public boolean isTipoUso() {
-		return tipoUso;
+	public TipoUso getUso() {
+		return uso;
 	}
 
-	/**
-	 * 
-	 * @param tipoUso
-	 */
-	public void setTipoUso(boolean tipoUso) {
-		this.tipoUso = tipoUso;
+	public void setUso(TipoUso uso) {
+
 	}
 
 }

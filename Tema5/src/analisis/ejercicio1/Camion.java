@@ -4,7 +4,7 @@ public class Camion extends Vehiculo {
 	/**
 	 * 
 	 */
-	private int pesoMax = 0;
+	private double pesoMax = 0;
 	/**
 	 * 
 	 */
@@ -17,13 +17,12 @@ public class Camion extends Vehiculo {
 	 * @param modelo
 	 * @param color
 	 * @param matricula
-	 * @param motor
-	 * @param marcha
-	 * @param velocidad
+	 * @param pesoMax
+	 * @param mercanciaPeligrosa
 	 */
-	public Camion(String marca, String modelo, String color, String matricula, boolean motor, int marcha, int velocidad,
-			int pesoMax, boolean mercanciaPeligrosa) {
-		super(marca, modelo, color, matricula, motor, marcha, velocidad);
+	public Camion(String marca, String modelo, String color, String matricula, double pesoMax,
+			boolean mercanciaPeligrosa) {
+		super(marca, modelo, color, matricula);
 		if (pesoMax > 0) {
 			this.pesoMax = pesoMax;
 		}
@@ -34,7 +33,7 @@ public class Camion extends Vehiculo {
 	 * 
 	 * @return
 	 */
-	public int getPesoMax() {
+	public double getPesoMax() {
 		return pesoMax;
 	}
 

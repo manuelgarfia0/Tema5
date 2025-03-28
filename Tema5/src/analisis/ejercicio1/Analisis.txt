@@ -1,4 +1,4 @@
-Vehículo
+class Vehículo
 	- marca: String
 	- modelo: String
 	- color: String
@@ -6,24 +6,32 @@ Vehículo
 	- motor: boolean
 	- marcha: int
 	- velocidad: int
-	- tipoVehículo: enum
+	- TipoVehículo: enum
 		TURISMO, CAMION, MOTOCICLETA
 
 	--------------------------
-	+ parar()
-	+ arrancar()
-	+ subirMarcha()
-	+ bajarMarcha()
+	Vehiculo(marca, modelo, color, matricula)
 	
-Turismo extends Vehículo
+	+ void parar()
+	+ void arrancar()
+	+ void subirMarcha()
+	+ void bajarMarcha()
+	+ boolean acelerar(int velocidad)
+	+ boolean frenar(int velocidad)
+	
+class Turismo extends Vehículo
+	- TipoUso: enum
+		PROFESIONAL, PARTICULAR
 	- numPlazas: int
-	- tipoUso: boolean
+	- uso: TipoUso
+	--------------------------
+	Turismo(marca, modelo, color, matricula, numPlazas)
 
-Camion extends Vehículo
-	- pesoMax: int
+class Camion extends Vehículo
+	- pesoMax: double
 	- mercanciaPeligrosa: boolean
 
-Motocicleta extends Vehículo
+class Motocicleta extends Vehículo
 	- cilindrada: int
 	--------------------------
-	+ requiereCarnet()
+	+ boolean requiereCarnet()

@@ -45,8 +45,7 @@ public class Vehiculo {
 	 * @param marcha
 	 * @param velocidad
 	 */
-	public Vehiculo(String marca, String modelo, String color, String matricula, boolean motor, int marcha,
-			int velocidad) {
+	public Vehiculo(String marca, String modelo, String color, String matricula) {
 		if (!marca.isBlank() && !marca.isEmpty() && marca == null) {
 			this.marca = marca;
 		}
@@ -58,13 +57,6 @@ public class Vehiculo {
 		}
 		if (!matricula.isBlank() && !matricula.isEmpty() && matricula == null) {
 			this.matricula = matricula;
-		}
-		this.motor = motor;
-		if (marcha >= 0 && marcha < 6) {
-			this.marcha = marcha;
-		}
-		if (velocidad >= 0) {
-			this.velocidad = velocidad;
 		}
 	}
 
