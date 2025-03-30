@@ -1,0 +1,71 @@
+class Titular
+	- dni: String
+	- nombre: String
+	- apellidos: String
+	- telefono: String
+			
+		--------------------------
+	+ Titular(dni, nombre, apellidos, telefono)
+	+ String getDni()
+	+ void setDni(String dni)
+	+ String getNombre()
+	+ void setNombre(String nombre)
+	+ String getApellidos()
+	+ void setApellidos(String apellidos)
+	+ String getTelefono()
+	+ void setTelefono(String telefono)
+
+class CuentaBancaria
+	- numeroCuenta: String
+	- saldo: double
+	- titulares: ArrayList<Titular> (máximo 3)
+			
+		--------------------------
+	+ CuentaBancaria(numeroCuenta, saldo, titulares)
+	+ String getNumeroCuenta()
+	+ void setNumeroCuenta(String numeroCuenta)
+	+ double getSaldo()
+	+ void setSaldo(double saldo)
+	+ ArrayList<Titular> getTitulares()
+	+ void añadirTitular(Titular titular)
+	+ void borrarTitular(String dni)
+	+ void ingresarDinero(double cantidad)
+	+ boolean retirarDinero(double cantidad)
+
+class CuentaAhorro extends CuentaBancaria
+	- cuotaMantenimiento: double
+	- interesAnual: double
+			
+		--------------------------
+	+ CuentaAhorro(numeroCuenta, saldo, titulares, cuotaMantenimiento, interesAnual)
+	+ double calcularSaldoConInteres()
+	+ void aplicarCuotaMantenimiento()
+
+class CuentaCorriente extends CuentaBancaria
+	- porcentajeTransaccion: double
+	- transacciones: ArrayList<Transaccion>
+			
+		--------------------------
+	+ CuentaCorriente(numeroCuenta, saldo, titulares, porcentajeTransaccion)
+	+ void registrarTransaccion(Transaccion transaccion)
+	+ ArrayList<Transaccion> getTransacciones()
+
+class Transaccion
+	- dia: int
+	- mes: int
+	- año: int
+	- concepto: String
+	- importe: double
+			
+		--------------------------
+	+ Transaccion(dia, mes, año, concepto, importe)
+	+ int getDia()
+	+ void setDia(int dia)
+	+ int getMes()
+	+ void setMes(int mes)
+	+ int getAño()
+	+ void setAño(int año)
+	+ String getConcepto()
+	+ void setConcepto(String concepto)
+	+ double getImporte()
+	+ void setImporte(double importe)

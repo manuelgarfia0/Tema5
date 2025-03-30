@@ -1,58 +1,30 @@
 package analisis.ejercicio1;
 
 public class Turismo extends Vehiculo {
-	/**
-	 * 
-	 */
-	enum TipoUso {
-		PROFESIONAL, PARTICULAR
-	}
+	private int numeroPlazas;
+	private String tipoUso; // Puede ser "Profesional" o "Particular"
 
-	/**
-	 * 
-	 */
-	private int numPlazas = 0;
-	private TipoUso uso;
-
-	/**
-	 * Constructor de turismo
-	 * 
-	 * @param marca
-	 * @param modelo
-	 * @param color
-	 * @param matricula
-	 * @param numPlazas
-	 */
-	public Turismo(String marca, String modelo, String color, String matricula, int numPlazas, TipoUso uso) {
+	public Turismo(String marca, String modelo, String color, String matricula, int numeroPlazas, String tipoUso) {
 		super(marca, modelo, color, matricula);
-		if (numPlazas > 0) {
-			this.numPlazas = numPlazas;
+		this.numeroPlazas = numeroPlazas;
+		this.tipoUso = tipoUso;
+	}
+
+	public int getNumeroPlazas() {
+		return numeroPlazas;
+	}
+
+	public void setNumeroPlazas(int numeroPlazas) {
+		if (numeroPlazas > 0) {
+			this.numeroPlazas = numeroPlazas;
 		}
-		this.uso = uso;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
-	public int getNumPlazas() {
-		return numPlazas;
+	public String getTipoUso() {
+		return tipoUso;
 	}
 
-	/**
-	 * 
-	 * @param numPlazas
-	 */
-	public void setNumPlazas(int numPlazas) {
-		this.numPlazas = numPlazas;
+	public void setTipoUso(String tipoUso) {
+		this.tipoUso = tipoUso;
 	}
-
-	public TipoUso getUso() {
-		return uso;
-	}
-
-	public void setUso(TipoUso uso) {
-
-	}
-
 }

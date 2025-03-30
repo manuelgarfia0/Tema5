@@ -2,32 +2,14 @@ package analisis.ejercicio1;
 
 public class Vehiculo {
 	/**
-	 * 
+	 * Propiedades básicas de un vehículo
 	 */
 	private String marca = "";
-	/**
-	 * 
-	 */
 	private String modelo = "";
-	/**
-	 * 
-	 */
 	private String color = "";
-	/**
-	 * 
-	 */
 	private String matricula = "";
-	/**
-	 * 
-	 */
 	private boolean motor = false;
-	/**
-	 * 
-	 */
 	private int marcha = 0;
-	/**
-	 * 
-	 */
 	private int velocidad = 0;
 
 	enum TipoVehiculo {
@@ -41,134 +23,108 @@ public class Vehiculo {
 	 * @param modelo
 	 * @param color
 	 * @param matricula
-	 * @param motor
-	 * @param marcha
-	 * @param velocidad
 	 */
 	public Vehiculo(String marca, String modelo, String color, String matricula) {
-		if (!marca.isBlank() && !marca.isEmpty() && marca == null) {
+		if (marca != null && !marca.isBlank()) {
 			this.marca = marca;
 		}
-		if (!modelo.isBlank() && !modelo.isEmpty() && modelo == null) {
+		if (modelo != null && !modelo.isBlank()) {
 			this.modelo = modelo;
 		}
-		if (!color.isBlank() && !color.isEmpty() && color == null) {
+		if (color != null && !color.isBlank()) {
 			this.color = color;
 		}
-		if (!matricula.isBlank() && !matricula.isEmpty() && matricula == null) {
+		if (matricula != null && !matricula.isBlank()) {
 			this.matricula = matricula;
 		}
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Getter y setter para la marca
 	 */
 	public String getMarca() {
 		return marca;
 	}
 
-	/**
-	 * 
-	 * @param marca
-	 */
 	public void setMarca(String marca) {
-		this.marca = marca;
+		if (marca != null && !marca.isBlank()) {
+			this.marca = marca;
+		}
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Getter y setter para el modelo
 	 */
 	public String getModelo() {
 		return modelo;
 	}
 
-	/**
-	 * 
-	 * @param modelo
-	 */
 	public void setModelo(String modelo) {
-		this.modelo = modelo;
+		if (modelo != null && !modelo.isBlank()) {
+			this.modelo = modelo;
+		}
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Getter y setter para el color
 	 */
 	public String getColor() {
 		return color;
 	}
 
-	/**
-	 * 
-	 */
 	public void setColor(String color) {
-		this.color = color;
+		if (color != null && !color.isBlank()) {
+			this.color = color;
+		}
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Getter y setter para la matrícula
 	 */
 	public String getMatricula() {
 		return matricula;
 	}
 
-	/**
-	 * 
-	 * @param matricula
-	 */
 	public void setMatricula(String matricula) {
-		this.matricula = matricula;
+		if (matricula != null && !matricula.isBlank()) {
+			this.matricula = matricula;
+		}
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Getter y setter para el estado del motor
 	 */
 	public boolean isMotor() {
 		return motor;
 	}
 
-	/**
-	 * 
-	 * @param motor
-	 */
 	public void setMotor(boolean motor) {
 		this.motor = motor;
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Getter y setter para la marcha
 	 */
 	public int getMarcha() {
 		return marcha;
 	}
 
-	/**
-	 * 
-	 * @param marcha
-	 */
 	public void setMarcha(int marcha) {
-		this.marcha = marcha;
+		if (marcha >= 0) {
+			this.marcha = marcha;
+		}
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Getter y setter para la velocidad
 	 */
 	public int getVelocidad() {
 		return velocidad;
 	}
 
-	/**
-	 * 
-	 * @param velocidad
-	 */
 	public void setVelocidad(int velocidad) {
-		this.velocidad = velocidad;
+		if (velocidad >= 0) {
+			this.velocidad = velocidad;
+		}
 	}
-
 }

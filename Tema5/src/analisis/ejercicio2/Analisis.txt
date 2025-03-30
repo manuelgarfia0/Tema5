@@ -1,0 +1,51 @@
+class Ficha
+	- numeroIdentificacion: int
+	- titulo: String
+	
+		--------------------------
+	+ Ficha(numeroIdentificacion, titulo)
+	+ int getNumeroIdentificacion()
+	+ void setNumeroIdentificacion(int numeroIdentificacion)
+	+ String getTitulo()
+	+ void setTitulo(String titulo)
+	+ abstract int obtenerTiempoPrestamo()
+
+class Libro extends Ficha
+	- autor: String
+	- editorial: String
+		
+		--------------------------
+	+ Libro(numeroIdentificacion, titulo, autor, editorial)
+	+ String getAutor()
+	+ void setAutor(String autor)
+	+ String getEditorial()
+	+ void setEditorial(String editorial)
+	+ int obtenerTiempoPrestamo()
+
+class Revista extends Ficha
+	- numeroRevista: int
+	- añoPublicacion: int
+			
+		--------------------------
+	+ Revista(numeroIdentificacion, titulo, numeroRevista, añoPublicacion)
+	+ int getNumeroRevista()
+	+ void setNumeroRevista(int numeroRevista)
+	+ int getAñoPublicacion()
+	+ void setAñoPublicacion(int añoPublicacion)
+	+ int obtenerTiempoPrestamo()
+
+class DVD extends Ficha
+	- director: String
+	- año: int
+	- tipo: String
+	- puedeSer: "película", "documental", "serie"
+		
+		--------------------------
+	+ DVD(numeroIdentificacion, titulo, director, año, tipo)
+	+ String getDirector()
+	+ void setDirector(String director)
+	+ int getAño()
+	+ void setAño(int año)
+	+ String getTipo()
+	+ void setTipo(String tipo)
+	+ int obtenerTiempoPrestamo()

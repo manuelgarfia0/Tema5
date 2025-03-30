@@ -1,64 +1,31 @@
 package analisis.ejercicio1;
 
 public class Camion extends Vehiculo {
-	/**
-	 * 
-	 */
-	private double pesoMax = 0;
-	/**
-	 * 
-	 */
-	private boolean mercanciaPeligrosa = false;
+	private float pesoMaximoAutorizado;
+	private boolean transportaMercanciaPeligrosa;
 
-	/**
-	 * Constructor de camion
-	 * 
-	 * @param marca
-	 * @param modelo
-	 * @param color
-	 * @param matricula
-	 * @param pesoMax
-	 * @param mercanciaPeligrosa
-	 */
-	public Camion(String marca, String modelo, String color, String matricula, double pesoMax,
-			boolean mercanciaPeligrosa) {
+	public Camion(String marca, String modelo, String color, String matricula, float pesoMaximoAutorizado,
+			boolean transportaMercanciaPeligrosa) {
 		super(marca, modelo, color, matricula);
-		if (pesoMax > 0) {
-			this.pesoMax = pesoMax;
+		this.pesoMaximoAutorizado = pesoMaximoAutorizado;
+		this.transportaMercanciaPeligrosa = transportaMercanciaPeligrosa;
+	}
+
+	public float getPesoMaximoAutorizado() {
+		return pesoMaximoAutorizado;
+	}
+
+	public void setPesoMaximoAutorizado(float pesoMaximoAutorizado) {
+		if (pesoMaximoAutorizado > 0) {
+			this.pesoMaximoAutorizado = pesoMaximoAutorizado;
 		}
-		this.mercanciaPeligrosa = mercanciaPeligrosa;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
-	public double getPesoMax() {
-		return pesoMax;
+	public boolean isTransportaMercanciaPeligrosa() {
+		return transportaMercanciaPeligrosa;
 	}
 
-	/**
-	 * 
-	 * @param pesoMax
-	 */
-	public void setPesoMax(int pesoMax) {
-		this.pesoMax = pesoMax;
+	public void setTransportaMercanciaPeligrosa(boolean transportaMercanciaPeligrosa) {
+		this.transportaMercanciaPeligrosa = transportaMercanciaPeligrosa;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public boolean isMercanciaPeligrosa() {
-		return mercanciaPeligrosa;
-	}
-
-	/**
-	 * 
-	 * @param mercanciaPeligrosa
-	 */
-	public void setMercanciaPeligrosa(boolean mercanciaPeligrosa) {
-		this.mercanciaPeligrosa = mercanciaPeligrosa;
-	}
-
 }
