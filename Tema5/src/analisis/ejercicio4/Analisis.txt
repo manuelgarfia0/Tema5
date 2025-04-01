@@ -1,0 +1,30 @@
+class Contacto
+    - nombre: String
+    - telefono: String
+
+        --------------------------
+    + Contacto(nombre, telefono)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + String getTelefono()
+    + void setTelefono(String telefono)
+    + boolean equals(Object obj)
+    + String toString()
+
+class Persona extends Contacto
+    - cumpleaños: String
+
+        --------------------------
+    + Persona(nombre, telefono, cumpleaños)
+    + String getCumpleaños()
+    + void setCumpleaños(String cumpleaños)
+    + String toString()
+
+class Empresa extends Contacto
+    - paginaWeb: String
+
+        --------------------------
+    + Empresa(nombre, telefono, paginaWeb)
+    + String getPaginaWeb()
+    + void setPaginaWeb(String paginaWeb)
+    + String toString()
