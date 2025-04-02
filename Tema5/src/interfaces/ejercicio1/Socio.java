@@ -1,9 +1,11 @@
 package interfaces.ejercicio1;
 
+import java.util.Comparator;
+
 /**
  * @author manuel.garfia
  */
-public class Socio implements Comparable<Socio> {
+public class Socio implements Comparable<Socio>, Comparator<Socio> {
 	/**
 	 * Id del socio
 	 */
@@ -59,6 +61,14 @@ public class Socio implements Comparable<Socio> {
 			res = 1;
 		}
 		return res;
+	}
+
+	/**
+	 * Método compareTo, para mostrar los socios ordenados por edad de mayor a menos
+	 */
+	@Override
+	public int compare(Socio s1, Socio s2) {
+		return s1.edad - s2.edad;
 	}
 
 }
