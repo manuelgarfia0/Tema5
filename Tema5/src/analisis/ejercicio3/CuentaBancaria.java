@@ -1,120 +1,130 @@
 package analisis.ejercicio3;
 
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Clase abstracta que representa una cuenta bancaria.
- */
-public abstract class CuentaBancaria {
-	private String numeroCuenta;
-	private double saldo;
-	private ArrayList<Titular> titulares;
+public class CuentaBancaria implements Comparable<CuentaBancaria> {
+	private int numeroCuenta;
+	protected double saldo;
+	private List<Titular> titulares;
 
 	/**
-	 * Constructor para la clase CuentaBancaria.
-	 *
-	 * @param numeroCuenta Número de la cuenta bancaria.
-	 * @param saldo        Saldo inicial de la cuenta.
-	 * @param titular      Titular principal de la cuenta.
+	 * Constructor de la clase cuenta bancaria
+	 * 
+	 * @param numeroCuenta   número de la cuenta bancaria
+	 * @param saldoInicial   saldo de la cuenta bancaria
+	 * @param titularInicial titular de la cuenta bancaria
 	 */
-	public CuentaBancaria(String numeroCuenta, double saldo, Titular titular) {
+	public CuentaBancaria(int numeroCuenta, double saldoInicial, Titular titularInicial) {
 		this.numeroCuenta = numeroCuenta;
-		this.saldo = saldo;
+		this.saldo = saldoInicial;
 		this.titulares = new ArrayList<>();
-		this.titulares.add(titular);
+		this.titulares.add(titularInicial);
 	}
 
 	/**
-	 * Obtiene el número de la cuenta bancaria.
-	 *
-	 * @return Número de la cuenta.
+	 * Devuelve el número de cuenta
+	 * 
+	 * @return número de la cuenta bancaria
 	 */
-	public String getNumeroCuenta() {
+	public int getNumeroCuenta() {
 		return numeroCuenta;
 	}
 
 	/**
-	 * Establece un nuevo número para la cuenta bancaria.
-	 *
-	 * @param numeroCuenta Nuevo número de la cuenta.
-	 */
-	public void setNumeroCuenta(String numeroCuenta) {
-		this.numeroCuenta = numeroCuenta;
-	}
-
-	/**
-	 * Obtiene el saldo actual de la cuenta.
-	 *
-	 * @return Saldo de la cuenta.
+	 * Devuelve el saldo
+	 * 
+	 * @return saldo de la cuenta bancaria
 	 */
 	public double getSaldo() {
 		return saldo;
 	}
 
 	/**
-	 * Establece un nuevo saldo para la cuenta.
-	 *
-	 * @param saldo Nuevo saldo de la cuenta.
+	 * Devuelve los titulares
+	 * 
+	 * @return titulares de la cuenta bancaria
 	 */
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
-
-	/**
-	 * Obtiene la lista de titulares de la cuenta.
-	 *
-	 * @return Lista de titulares de la cuenta.
-	 */
-	public ArrayList<Titular> getTitulares() {
+	public List<Titular> getTitulares() {
 		return titulares;
 	}
 
 	/**
-	 * Añade un nuevo titular a la cuenta (máximo 3).
-	 *
-	 * @param titular Nuevo titular de la cuenta.
-	 * @return true si se pudo añadir, false si ya hay tres titulares.
+	 * Método para ingresar dinero
+	 * 
+	 * @param monto cantidad de dinero a añadir
 	 */
-	public boolean añadirTitular(Titular titular) {
+	public void ingresarDinero(double monto) {
+		if (monto > 0) {
+			saldo += monto;
+			System.out.println("Se han ingresado " + monto + " €. Saldo actual: " + saldo + " €.");
+		} else {
+			System.out.println("El monto a ingresar debe ser positivo.");
+		}
+	}
+
+	/**
+	 * Método para retirar dinero
+	 * 
+	 * @param monto cantidad de dinero a sacar
+	 */
+	public void retirarDinero(double monto) {
+		if (monto > 0) {
+			if (monto <= saldo) {
+				saldo -= monto;
+				System.out.println("Se han retirado " + monto + " €. Saldo actual: " + saldo + " €.");
+			} else {
+				System.out.println("No hay suficiente saldo para realizar la operación.");
+			}
+		} else {
+			System.out.println("El monto a retirar debe ser positivo.");
+		}
+	}
+
+	/**
+	 * Método para añadir un titular
+	 * 
+	 * @param titular el nuevo titular
+	 */
+	public void añadirTitular(Titular titular) {
 		if (titulares.size() < 3) {
 			titulares.add(titular);
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * Borra un titular de la cuenta según su DNI.
-	 *
-	 * @param dni DNI del titular a eliminar.
-	 * @return true si se pudo eliminar, false si no se encontró el titular.
-	 */
-	public boolean borrarTitular(String dni) {
-		return titulares.removeIf(titular -> titular.getDni().equals(dni));
-	}
-
-	/**
-	 * Ingresa dinero en la cuenta.
-	 *
-	 * @param cantidad Cantidad a ingresar.
-	 */
-	public void ingresarDinero(double cantidad) {
-		if (cantidad > 0) {
-			saldo += cantidad;
+			System.out.println("Titular " + titular.getNombre() + " añadido correctamente.");
+		} else {
+			System.out.println("La cuenta ya tiene el máximo de tres titulares.");
 		}
 	}
 
 	/**
-	 * Retira dinero de la cuenta.
-	 *
-	 * @param cantidad Cantidad a retirar.
-	 * @return true si se pudo retirar, false si el saldo es insuficiente.
+	 * Método para eliminar un titular
+	 * 
+	 * @param dni dni del titular a eliminar
 	 */
-	public boolean retirarDinero(double cantidad) {
-		if (cantidad > 0 && saldo >= cantidad) {
-			saldo -= cantidad;
-			return true;
+	public void borrarTitular(String dni) {
+		for (Titular titular : titulares) {
+			if (titular.getDni().equals(dni)) {
+				titulares.remove(titular);
+				System.out.println("Titular con DNI " + dni + " eliminado correctamente.");
+			} else {
+				System.out.println("No se encontró un titular con ese DNI.");
+			}
 		}
-		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Número cuenta: " + numeroCuenta + "\n Saldo: " + saldo + "\n Titular: " + titulares + "\n";
+	}
+
+	@Override
+	public int compareTo(CuentaBancaria o) {
+		int res = 0;
+		if (this.numeroCuenta > o.numeroCuenta) {
+			res = 1;
+		}
+		if (this.numeroCuenta < o.numeroCuenta) {
+			res = -1;
+		}
+		return res;
 	}
 }

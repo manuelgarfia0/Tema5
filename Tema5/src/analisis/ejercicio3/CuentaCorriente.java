@@ -1,47 +1,52 @@
 package analisis.ejercicio3;
 
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Clase que representa una cuenta corriente. Hereda de CuentaBancaria y añade
- * manejo de transacciones.
- */
 public class CuentaCorriente extends CuentaBancaria {
 	private double porcentajeTransaccion;
-	private ArrayList<Transaccion> transacciones;
+	private List<Transaccion> transacciones;
 
 	/**
-	 * Constructor para la clase CuentaCorriente.
-	 *
-	 * @param numeroCuenta          Número de la cuenta bancaria.
-	 * @param saldo                 Saldo inicial de la cuenta.
-	 * @param titular               Titular principal de la cuenta.
-	 * @param porcentajeTransaccion Porcentaje cobrado por cada transacción.
+	 * Constructor de la clase cuenta corriente
+	 * 
+	 * @param numeroCuenta          numero de la cuenta corriente
+	 * @param saldoInicial          saldo de la cuenta corriente
+	 * @param titularInicial        titular de la cuenta corriente
+	 * @param porcentajeTransaccion porcentaje en cada transacción
 	 */
-	public CuentaCorriente(String numeroCuenta, double saldo, Titular titular, double porcentajeTransaccion) {
-		super(numeroCuenta, saldo, titular);
+	public CuentaCorriente(int numeroCuenta, double saldoInicial, Titular titularInicial,
+			double porcentajeTransaccion) {
+		super(numeroCuenta, saldoInicial, titularInicial);
 		this.porcentajeTransaccion = porcentajeTransaccion;
 		this.transacciones = new ArrayList<>();
 	}
 
 	/**
-	 * Registra una nueva transacción.
-	 *
-	 * @param transaccion Transacción a registrar.
+	 * Método para realizar una transacción
+	 * 
+	 * @param transaccion la informacion de la transacción
 	 */
-	public void registrarTransaccion(Transaccion transaccion) {
-		transacciones.add(transaccion);
-		double importeConPorcentaje = transaccion.getImporte()
-				+ (transaccion.getImporte() * porcentajeTransaccion / 100);
-		setSaldo(getSaldo() - importeConPorcentaje);
+	public void realizarTransaccion(Transaccion transaccion) {
+		double cargo = transaccion.getImporte() * (porcentajeTransaccion / 100);
+		double total = transaccion.getImporte() + cargo;
+
+		if (saldo >= total) {
+			saldo -= total;
+			transacciones.add(transaccion);
+			System.out.println(
+					"Transacción realizada: " + transaccion.getConcepto() + ". Saldo actual: " + saldo + " €.");
+		} else {
+			System.out.println("No hay suficiente saldo para realizar la transacción.");
+		}
 	}
 
 	/**
-	 * Obtiene la lista de transacciones registradas.
-	 *
-	 * @return Lista de transacciones.
+	 * Método para obtener el número de transacciones
+	 * 
+	 * @return el número total de transacciones
 	 */
-	public ArrayList<Transaccion> getTransacciones() {
-		return transacciones;
+	public int obtenerNumeroTransacciones() {
+		return transacciones.size();
 	}
 }

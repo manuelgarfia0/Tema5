@@ -10,7 +10,16 @@ public class Principal {
 				new Socio(5, "Alfredo", 18), new Socio(4, "Iñigo", 34) };
 
 		Arrays.sort(socios);
+		System.out.println(Arrays.deepToString(socios));
 
+		System.out.println();
+
+		Arrays.sort(socios, new comparaEdad());
+		System.out.println(Arrays.deepToString(socios));
+
+		System.out.println();
+
+		Arrays.sort(socios, new comparaNombre());
 		System.out.println(Arrays.deepToString(socios));
 	}
 

@@ -1,23 +1,21 @@
 package interfaces.ejercicio1;
 
-import java.util.Comparator;
-
 /**
  * @author manuel.garfia
  */
-public class Socio implements Comparable<Socio>, Comparator<Socio> {
+public class Socio implements Comparable<Socio> {
 	/**
 	 * Id del socio
 	 */
-	int id;
+	private int id;
 	/**
 	 * Nombre del socio
 	 */
-	String nombre;
+	private String nombre;
 	/**
 	 * Edad del socio
 	 */
-	int edad;
+	private int edad;
 
 	/**
 	 * 
@@ -37,6 +35,26 @@ public class Socio implements Comparable<Socio>, Comparator<Socio> {
 		if (edad > 0) {
 			this.edad = edad;
 		}
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	/**
@@ -61,14 +79,6 @@ public class Socio implements Comparable<Socio>, Comparator<Socio> {
 			res = 1;
 		}
 		return res;
-	}
-
-	/**
-	 * Método compareTo, para mostrar los socios ordenados por edad de mayor a menos
-	 */
-	@Override
-	public int compare(Socio s1, Socio s2) {
-		return s1.edad - s2.edad;
 	}
 
 }

@@ -4,7 +4,8 @@ package analisis.ejercicio2;
  * Clase abstracta que representa una ficha en la biblioteca. Contiene atributos
  * comunes como el número de identificación y el título.
  */
-public abstract class Ficha {
+public abstract class Ficha implements Comparable<Ficha> {
+
 	private int numeroIdentificacion;
 	private String titulo;
 
@@ -61,4 +62,16 @@ public abstract class Ficha {
 	 * @return Tiempo de préstamo en días.
 	 */
 	public abstract int obtenerTiempoPrestamo();
+
+	@Override
+	public int compareTo(Ficha o) {
+		int res = 0;
+		if (this.numeroIdentificacion > o.numeroIdentificacion) {
+			res = 1;
+		}
+		if (this.numeroIdentificacion < o.numeroIdentificacion) {
+			res = -1;
+		}
+		return res;
+	}
 }

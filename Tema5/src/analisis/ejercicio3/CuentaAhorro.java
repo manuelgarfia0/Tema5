@@ -5,38 +5,78 @@ package analisis.ejercicio3;
  * cuota de mantenimiento e interés anual.
  */
 public class CuentaAhorro extends CuentaBancaria {
-	private double cuotaMantenimiento;
 	private double interesAnual;
+	private double cuotaMantenimiento;
 
 	/**
-	 * Constructor para la clase CuentaAhorro.
-	 *
-	 * @param numeroCuenta       Número de la cuenta bancaria.
-	 * @param saldo              Saldo inicial de la cuenta.
-	 * @param titular            Titular principal de la cuenta.
-	 * @param cuotaMantenimiento Cuota de mantenimiento de la cuenta.
-	 * @param interesAnual       Interés anual de la cuenta.
+	 * Construcor de la clase cuenta ahorro
+	 * 
+	 * @param numeroCuenta       numero de la cuenta ahorro
+	 * @param saldoInicial       saldo de la cuenta ahorro
+	 * @param titularInicial     titular de la cuenta ahorro
+	 * @param interesAnual       interes de la cuenta ahorro
+	 * @param cuotaMantenimiento mantenimiento de la cuenta ahorro
 	 */
-	public CuentaAhorro(String numeroCuenta, double saldo, Titular titular, double cuotaMantenimiento,
-			double interesAnual) {
-		super(numeroCuenta, saldo, titular);
+	public CuentaAhorro(int numeroCuenta, double saldoInicial, Titular titularInicial, double interesAnual,
+			double cuotaMantenimiento) {
+		super(numeroCuenta, saldoInicial, titularInicial);
+		this.interesAnual = interesAnual;
 		this.cuotaMantenimiento = cuotaMantenimiento;
+	}
+
+	/**
+	 * Devuelve el interes
+	 * 
+	 * @return interes de la cuenta ahorro
+	 */
+	public double getInteresAnual() {
+		return interesAnual;
+	}
+
+	/**
+	 * Modifica el interes
+	 * 
+	 * @param interesAnual el nuevo interes de la cuenta ahorro
+	 */
+	public void setInteresAnual(double interesAnual) {
 		this.interesAnual = interesAnual;
 	}
 
 	/**
-	 * Calcula el saldo nuevo después de aplicar el interés anual.
-	 *
-	 * @return Saldo nuevo después del interés.
+	 * Devuelve la cuota de mantenimiento
+	 * 
+	 * @return la cuota de mantenimiento de la cuenta ahorro
 	 */
-	public double calcularSaldoConInteres() {
-		return getSaldo() * (1 + interesAnual / 100);
+	public double getCuotaMantenimiento() {
+		return cuotaMantenimiento;
 	}
 
 	/**
-	 * Aplica la cuota de mantenimiento a la cuenta.
+	 * Modifica la cuota de mantenimiento
+	 * 
+	 * @param cuotaMantenimiento la nueva cuota de la cuenta ahorro
 	 */
-	public void aplicarCuotaMantenimiento() {
-		setSaldo(getSaldo() - cuotaMantenimiento);
+	public void setCuotaMantenimiento(double cuotaMantenimiento) {
+		this.cuotaMantenimiento = cuotaMantenimiento;
+	}
+
+	/**
+	 * Método para calcular el nuevo saldo
+	 */
+	public void saldoNuevo() {
+		saldo += saldo * (interesAnual / 100);
+		System.out.println("Se ha aplicado el interés anual. Saldo actual: " + saldo + " €.");
+		if (saldo >= cuotaMantenimiento) {
+			saldo -= cuotaMantenimiento;
+			System.out.println("Se ha restado la cuota de mantenimiento. Saldo actual: " + saldo + " €.");
+		} else {
+			System.out.println("No hay suficiente saldo para restar la cuota de mantenimiento.");
+		}
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "Interes Anual: " + interesAnual + "\n Cuota de mantenimiento: " + cuotaMantenimiento
+				+ "\n";
 	}
 }

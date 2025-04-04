@@ -11,7 +11,16 @@ public class Principal {
 				new Futbolista(7, "Alfredo", 18, 89), new Futbolista(13, "Iñigo", 27, 73) };
 
 		Arrays.sort(futbolistas);
+		System.out.println(Arrays.deepToString(futbolistas));
 
+		System.out.println();
+
+		Arrays.sort(futbolistas, new ComparaEdad());
+		System.out.println(Arrays.deepToString(futbolistas));
+
+		System.out.println();
+
+		Arrays.sort(futbolistas, new ComparaNumGoles());
 		System.out.println(Arrays.deepToString(futbolistas));
 	}
 

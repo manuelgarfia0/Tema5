@@ -3,96 +3,91 @@ package analisis.ejercicio3;
 /**
  * Clase que representa a un titular de una cuenta bancaria.
  */
-public class Titular {
+public class Titular implements Comparable<Titular> {
+
 	private String dni;
+
 	private String nombre;
+
 	private String apellidos;
-	private String telefono;
+
+	private int telf;
 
 	/**
-	 * Constructor para la clase Titular.
-	 *
-	 * @param dni       DNI del titular.
-	 * @param nombre    Nombre del titular.
-	 * @param apellidos Apellidos del titular.
-	 * @param telefono  Teléfono del titular.
+	 * Constructor de la clase titular
+	 * 
+	 * @param dni       dni del titular
+	 * @param nombre    nombre del titular
+	 * @param apellidos apellidos del titular
+	 * @param telf      teléfono del titular
 	 */
-	public Titular(String dni, String nombre, String apellidos, String telefono) {
-		this.dni = dni;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.telefono = telefono;
+	public Titular(String dni, String nombre, String apellidos, int telf) {
+		if (dni != null && !dni.isBlank())
+			this.dni = dni;
+
+		if (nombre != null && !nombre.isBlank())
+			this.nombre = nombre;
+
+		if (apellidos != null && !apellidos.isBlank())
+			this.apellidos = apellidos;
+
+		if (telf > 0)
+			this.telf = telf;
 	}
 
 	/**
-	 * Obtiene el DNI del titular.
-	 *
-	 * @return DNI del titular.
+	 * Devuelve el teléfono
+	 * 
+	 * @return teléfono del titular
+	 */
+	public int getTelf() {
+		return telf;
+	}
+
+	/**
+	 * Modifica el teléfono
+	 * 
+	 * @param telf el nuevo teléfono
+	 */
+	public void setTelf(int telf) {
+		if (telf > 0)
+			this.telf = telf;
+	}
+
+	/**
+	 * Devuelve el dni
+	 * 
+	 * @return dni del titular
 	 */
 	public String getDni() {
 		return dni;
 	}
 
 	/**
-	 * Establece un nuevo DNI para el titular.
-	 *
-	 * @param dni Nuevo DNI del titular.
-	 */
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
-
-	/**
-	 * Obtiene el nombre del titular.
-	 *
-	 * @return Nombre del titular.
+	 * Devuelve el nombre
+	 * 
+	 * @return nombre del titular
 	 */
 	public String getNombre() {
 		return nombre;
 	}
 
 	/**
-	 * Establece un nuevo nombre para el titular.
-	 *
-	 * @param nombre Nuevo nombre del titular.
-	 */
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	/**
-	 * Obtiene los apellidos del titular.
-	 *
-	 * @return Apellidos del titular.
+	 * Devuelve los apellidos
+	 * 
+	 * @return apellidos del titular
 	 */
 	public String getApellidos() {
 		return apellidos;
 	}
 
-	/**
-	 * Establece nuevos apellidos para el titular.
-	 *
-	 * @param apellidos Nuevos apellidos del titular.
-	 */
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
+	@Override
+	public String toString() {
+		return "Dni: " + dni + "\n Nombre: " + nombre + "\n Apellidos: " + apellidos + "\n Teléfono: " + telf + "\n";
 	}
 
-	/**
-	 * Obtiene el teléfono del titular.
-	 *
-	 * @return Teléfono del titular.
-	 */
-	public String getTelefono() {
-		return telefono;
-	}
-
-	/**
-	 * Establece un nuevo teléfono para el titular.
-	 *
-	 * @param telefono Nuevo teléfono del titular.
-	 */
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+	@Override
+	public int compareTo(Titular o) {
+		return this.dni.compareToIgnoreCase(o.dni);
 	}
 }
