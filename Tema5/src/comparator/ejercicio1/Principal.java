@@ -18,9 +18,13 @@ public class Principal {
 
 		System.out.println();
 
-		Collections.sort(numeros, new ComparatorNumDecreciente());
+		Collections.sort(numeros, (num1, num2)->{
+			return num1 - num2;
+		});
 
 		System.out.println("Números ordenados decrecientemente:");
 		System.out.println(numeros);
+		
+		
 	}
 }
