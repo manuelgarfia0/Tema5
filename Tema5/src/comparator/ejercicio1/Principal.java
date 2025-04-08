@@ -17,14 +17,13 @@ public class Principal {
 		System.out.println(numeros);
 
 		System.out.println();
-
-		Collections.sort(numeros, (num1, num2)->{
-			return num1 - num2;
+		// Expresion lambda
+		Collections.sort(numeros, (num1, num2) -> {
+			return num2 - num1;
 		});
 
 		System.out.println("Números ordenados decrecientemente:");
 		System.out.println(numeros);
-		
-		
+
 	}
 }
