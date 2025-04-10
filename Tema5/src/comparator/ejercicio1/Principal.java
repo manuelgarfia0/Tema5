@@ -18,7 +18,7 @@ public class Principal {
 
 		System.out.println();
 		// Expresion lambda
-		Collections.sort(numeros, (num1, num2) -> {
+		numeros.sort((num1, num2) -> {
 			return num2 - num1;
 		});
 

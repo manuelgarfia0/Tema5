@@ -1,31 +1,26 @@
 package analisis.ejercicio2;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class PrincipalComparable {
 
 	public static void main(String[] args) {
+		ArrayList<Ficha> listaFichas = new ArrayList<>();
+		Ficha dvd = new DVD(1, "dfs", "dfgsdf", 1990, "pelicula");
+		Ficha libro = new Libro(2, "lflkj", "kpojg", "pobrkfgnm");
 
-		// Creamos el array de fichas
-		Ficha fichas[] = new Ficha[] { new Libro(4, "IT", "Stephen King", "Editorial"),
-				new DVD(2, "Interestellar", "Christopher Nolan", 2010, "PELICULA"),
-				new Revista(3, "Cotilleo", 34, 2020) };
+		listaFichas.add(libro);
+		listaFichas.add(dvd);
+		for (Ficha ficha : listaFichas) {
+			System.out.println(ficha);
+		}
 
-		// Lo ordenamos
-		Arrays.sort(fichas);
+		Collections.sort(listaFichas, (a, b) -> a.getTitulo().compareTo(b.getTitulo()));
 
-		// Lo imprimimos
-		System.out.println(Arrays.deepToString(fichas));
-		// Salto de línea
-		System.out.println();
-
-		// Lo ordenamos según el nombre
-		Arrays.sort(fichas, new ComparaNombre());
-
-		// Lo imprimimos
-		System.out.println(Arrays.deepToString(fichas));
-		// Salto de línea
-		System.out.println();
+		for (Ficha ficha : listaFichas) {
+			System.out.println(ficha);
+		}
 	}
 
 }

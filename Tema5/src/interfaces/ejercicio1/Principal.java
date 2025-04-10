@@ -1,26 +1,28 @@
 package interfaces.ejercicio1;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Principal {
 
 	public static void main(String[] args) {
+		ArrayList<Socio> listaSocios = new ArrayList<>();
+		listaSocios.add(new Socio(1, "Antonio", 33));
+		listaSocios.add(new Socio(3, "Isabel", 21));
+		listaSocios.add(new Socio(4, "Ermenegildo", 32));
+		listaSocios.add(new Socio(2, "Cristobal", 24));
 
-		Socio socios[] = new Socio[] { new Socio(3, "Antonio", 43), new Socio(2, "Paco", 22), new Socio(1, "Maria", 33),
-				new Socio(5, "Alfredo", 18), new Socio(4, "Iñigo", 34) };
-
-		Arrays.sort(socios);
-		System.out.println(Arrays.deepToString(socios));
-
-		System.out.println();
-
-		Arrays.sort(socios, new comparaEdad());
-		System.out.println(Arrays.deepToString(socios));
-
-		System.out.println();
-
-		Arrays.sort(socios, new comparaNombre());
-		System.out.println(Arrays.deepToString(socios));
+		System.out.println(listaSocios);
+		Collections.sort(listaSocios);
+		System.out.println(listaSocios);
+		listaSocios.sort((a, b) -> a.getEdad() - b.getEdad());
+		System.out.println(listaSocios);
+		Comparator<Socio> comparadorNombreAlfabetico = (a, b) -> {
+			return a.getNombre().compareTo(b.getNombre());
+		};
+		listaSocios.sort(comparadorNombreAlfabetico);
+		System.out.println(listaSocios);
 	}
 
 }
